@@ -1,0 +1,1 @@
+accelerate test --config_file ./default_config.yaml
