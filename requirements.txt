@@ -1,3 +1,4 @@
+controlnet_aux
 absl-py==2.1.0
 accelerate==0.31.0
 addict==2.4.0
