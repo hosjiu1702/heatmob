@@ -13,6 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 
+# type: ignore
 import argparse
 import copy
 import gc
@@ -70,7 +71,7 @@ if is_wandb_available():
     import wandb
 
 # Will error if the minimal version of diffusers is not installed. Remove at your own risks.
-check_min_version("0.30.0.dev0")
+check_min_version("0.29.0.dev0")
 
 logger = get_logger(__name__)
 
@@ -1394,7 +1395,7 @@ def main(args):
         # run inference
         images = []
         if args.validation_prompt and args.num_validation_images > 0:
-            pipeline_args = {"prompt": args.validation_prompt, "num_inference_steps": 25}
+            pipeline_args = {"prompt": args.validation_prompt, "num_inference_steps": 30}
             images = log_validation(
                 pipeline,
                 args,

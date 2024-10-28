@@ -1,0 +1,6 @@
+#!/workspace/playground/dev-venv/bin/python3.10
+
+from deepspeed.launcher.runner import main
+
+if __name__ == '__main__':
+    main()

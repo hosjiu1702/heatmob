@@ -1,0 +1,16 @@
+export MODEL_NAME="runwayml/stable-diffusion-v1-5" \
+export OUTPUT_DIR="models/finetune/lora/coolmate/1" \
+export DATASET_NAME="dataset/lora/coolmate/1"
+
+accelerate launch --config_file default_config.yaml train_text_to_image_lora.py \
+    --pretrained_model_name_or_path=$MODEL_NAME \
+    --train_data_dir=$DATASET_NAME \
+    --mixed_precision='fp16' \
+    --checkpointing_steps=500 \
+    --resume_from_checkpoint="latest" \
+    --train_batch_size=4 \
+    --max_train_steps=100 \
+    --report_to="wandb" \
+    --output_dir=$OUTPUT_DIR \
+    --validation_prompt="men black t-shirt" \
+    --seed=1337

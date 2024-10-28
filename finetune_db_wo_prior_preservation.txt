@@ -1,0 +1,24 @@
+export MODEL_NAME="runwayml/stable-diffusion-v1-5"
+export INSTANCE_DIR="dataset/db/coolmate/1"
+export OUTPUT_DIR="models/finetune/dreambooth_w_lora/coolmate/1"
+
+accelerate launch train_dreambooth_lora.py \
+    --mixed_precision="fp16" \
+    --pretrained_model_name_or_path=$MODEL_NAME \
+    --instance_data_dir=$INSTANCE_DIR \
+    --output_dir=$OUTPUT_DIR \
+    --instance_prompt="a photo of sks black t-shirt" \
+    --train_text_encoder \
+    --resolution=512 \
+    --train_batch_size=4 \
+    --gradient_accumulation_steps=1 \
+    --learning_rate=5e-6 \
+    --lr_scheduler="constant" \
+    --lr_warmup_steps=0 \
+    --max_train_steps=1000 \
+    --checkpointing_steps=100 \
+    --checkpoints_total_limit=1 \
+    --validation_prompt="a photo of sks black t-shirt dressed by a man" \
+    --validation_epochs=50 \
+    --report_to="wandb" \
+    --seed=1337

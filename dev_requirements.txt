@@ -1,0 +1,32 @@
+ip-adapter==0.1.0
+transformers
+wandb
+accelerate
+datasets
+peft
+controlnet_aux
+torch==2.0.0 --index-url https://download.pytorch.org/whl/cu121
+diffusers
+matplotlib
+xformers==0.0.18
+safetensors
+
+# below for Kolors repo on github
+fire
+triton
+pydantic
+deepspeed
+huggingface-hub
+imageio
+numpy
+omegaconf
+pandas
+Pillow
+tokenizers
+torchvision
+sentencepiece
+gradio
+opencv-python
+einops
+timm
+onnxruntime
